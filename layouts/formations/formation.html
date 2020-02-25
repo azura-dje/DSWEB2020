@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+{{ partial "head" . }}
+<body>
+{{ partial "header" . }}
+<main>
+<div class="container">
+  <section class="section formation">
+  <div class="row">
+    
+      <h1 class="center-align">Formation en plongée sous-marine</h1>
+      
+      <p class="flow-text">Que vous soyez débutant, passionné de plongée, avide d’exploration des fonds-marins ou plongeur confirmé, notre équipe de moniteurs professionnels est disponible à tous pour s’adapter à vos demandes et vous proposer la meilleure option.</p>
+<p class="flow-text">N’hésitez pas à venir vous former en toute sécurité avec des moniteurs brevetés dans le respect des normes en vigueur.
+</p>
+    </div><!-- ./row bapteme  -->
+	<div class="row">
+{{range $element := .Site.Data.formation.list.formation }}
+   	<a href ="{{ $element.lien }}"><div class="col s12 m6 l4">
+        <div class="card">
+        <div class="card-image">
+          <img src="{{ $element.image }}">
+          <span class="card-title">{{ $element.title }}</span>
+        </div>
+        </div>
+      </div></a>
+{{ end }}
+      
+      </div>
+
+    </div>
+
+   
+  </section>
+</div>
+</main> 
+{{ partial "footer" . }}
+{{ partial "scripts" . }}
+</body>
+</html>

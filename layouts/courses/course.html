@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html lang="fr">
+{{ partial "head" . }}
+<body>
+<header>
+<nav class="light-blue darken-3">
+<h3 class="center-align" style="line-height: 56px; margin: 0px">{{ .Title }}</h3>
+</nav>
+</header>
+<main>
+<div  class="container ">
+ <div class="row">
+<div class="col s12 m9">
+ <div class="section flow-text">
+<h4 style="color:#0277bd">{{ .Params.titre }}</h4>
+<div><img class="responsive-img" src="{{ .Params.imageUrl }}"></div> 
+  {{ .Content }}
+</div>
+</div>
+<div class="col s12 m3">
+<div class="section">
+   
+<div class="collection">
+	<a href ="/formation/padi/scuba-diver" class="collection-item">PADI Scuba Diver</a>
+    <a href ="/formation/padi/open-water-diver" class="collection-item">PADI Open Water Diver</a>
+    <a href ="/formation/padi/adventure-diver" class="collection-item ">PADI Adventure Diver</a>
+    <a href ="/formation/padi/advanced-open-water" class="collection-item">PADI Advanced Open Water</a>
+    <a href ="/formation/padi/rescue-diver" class="collection-item">PADI Rescue Diver</a>
+    <a href ="/formation/padi/padi-efr" class="collection-item">PADI EFR</a>
+    <a href ="/formation/padi/padi-dive-master" class="collection-item">PADI Dive Master</a>
+    <a href ="/formation/padi/padi-bubblemaker" class="collection-item">PADI Bubblemaker</a>
+    <a href ="/formation/cmas/cmas-niveau-1" class="collection-item">CMAS Niveau I</a>
+</div>
+  </div>
+</div>
+</div>
+
+</div>
+
+</main>
+<footer class="page-footer light-blue darken-3">
+          <div class="container">
+            <div class="row">
+              
+              <div class="col m4  s12">
+                <h5 class="white-text">Formation</h5>
+                <ul >
+{{range $element := .Site.Data.formation.list.formation }}
+	<li><a class="white-text" href ="{{ $element.lien }}">{{ $element.title }}</a></li>
+{{ end }}
+</ul>
+              </div>
+			  <div class="col m4  s12">
+                
+              </div>
+			  {{ if isset .Site.Params "address" }}
+			  <div class="col m4 s12">
+                <h5 class="white-text">Contact</h5>
+                {{ .Site.Params.address | markdownify }}
+                <div><a href="/contact" class="waves-effect waves-light btn">Contactez-nous</a></div>
+              </div>
+              {{ end }}
+            </div>
+           </div>   
+          </div>
+          <div class="footer-copyright">
+           <div class="container">
+            © 2017 Copyright Djerba-Sub all rights reserved.
+          
+          </div>
+		   </div>
+</footer>
+            
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+<!doctype html>
+<html lang="fr">
+{{ partial "head" . }}
+<body>
+{{ partial "header" . }}
+<main>
+<div class="container">
+  <section class="section formation">
+  <div class="row">{{ .Content.title}}</div>
+  <div class="row">
+  <div class="col m8 l9">
+
+</div>
+<div class="col m4 l3" style="background:pink">
+<ul >
+{{range $element := .Site.Data.formation.list.formation }}
+	<li><a href ="{{ $element.lien }}">{{ $element.title }}</a></li>
+{{ end }}
+</ul>
+</div>
+</div>
+  </section>
+</div>
+</main> 
+
+{{ partial "scripts" . }}
+</body>
+</html>
